@@ -6,7 +6,10 @@
     <title>理财宝 首页</title>
     <meta name="viewport" content="width=device-width initial-scale=1">
     <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="stylesheet" href="js/vender/owl.carousel.2.1.0/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="js/vender/owl.carousel.2.1.0/assets/owl.theme.default.min.css"/>
     <link rel="stylesheet" href="css/main.css"/>
+
 </head>
 <body>
 <!--[if lte IE8]>
@@ -53,9 +56,11 @@
         </div>
     </div>
     <div class="ad">
-        <div class="item"><img src="img/ad001.png"/></div>
-        <div class="item"><img src="img/ad002.png"/></div>
-        <div class="item"><img src="img/ad003.png"/></div>
+        <div class="owl-carousel owl-theme">
+            <div class="item"><img src="img/ad001.png"/></div>
+            <div class="item"><img src="img/ad002.png"/></div>
+            <div class="item"><img src="img/ad003.png"/></div>
+        </div>
     </div>
     <section class="feature">
         <div class="item">
@@ -222,5 +227,8 @@
     </ul>
     <p>北京互联网公司 版权所有 ©2015-2016</p>
 </footer>
+<script src="js/vender/jquery.min.js"></script>
+<script src="js/vender/owl.carousel.2.1.0/owl.carousel.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
