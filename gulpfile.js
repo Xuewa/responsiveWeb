@@ -8,8 +8,22 @@ var useref=require('gulp-useref');
 var filter=require('gulp-filter');//过滤
 var uglify=require('gulp-uglify');//压缩js代码
 var csso=require('gulp-csso');//压缩css代码
-
-gulp.task('default',function(){
+var imagemin=require('gulp-imagemin');//压缩图片
+var browsersync=require('browser-sync').create();
+gulp.task('imgMin',function(){
+    return gulp.src('src/img/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/img'))
+});
+// 静态服务器
+gulp.task('browser-sync', function() {
+    browsersync.init({
+        server: {
+            baseDir: "src"
+        }
+    });
+});
+gulp.task('default',['imgMin','browser-sync'],function(){
    var jsFilter=filter('**/*.js',{restore:true});
    var cssFilter=filter('**/*.css',{restore:true});
    var indexHtmlFilter=filter(['**/*','!**/index.html'],{restore:true});
@@ -26,6 +40,5 @@ gulp.task('default',function(){
        .pipe(rev())
        .pipe(indexHtmlFilter.restore)
        .pipe(revReplace())
-       .pipe(gulp.dest('dist'));
-
+       .pipe(gulp.dest('dist'))
 });
